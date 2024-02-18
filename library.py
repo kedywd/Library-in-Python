@@ -4,7 +4,7 @@ class Library:
 
     def __del__(self):
         self.file.close()
-
+    #a. List Books
     def list_books(self):
         self.file.seek(0)
         books = self.file.readlines()
@@ -15,7 +15,7 @@ class Library:
                 print(f"Title: {book_info[0]}, Author: {book_info[1]}")
         else:
             print("No books available.")
-
+    #b. Add Book
     def add_book(self):
         title = input("Enter book title: ")
         author = input("Enter book author: ")
@@ -24,7 +24,7 @@ class Library:
         book_info = f"{title},{author},{release_year},{pages}\n"
         self.file.write(book_info)
         print("Book added successfully.")
-
+    #c. Remove Book
     def remove_book(self):
         title = input("Enter the title of the book to remove: ")
         self.file.seek(0)
